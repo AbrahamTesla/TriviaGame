@@ -37,3 +37,51 @@ var namePerson = [{question: "What's the name of Chicago Bulls Player who won ch
                      choices: "Pacquiao","Ali","MayWeather","Jackson",
                      Answer: 0
                  }];
+var rightAnswer;
+var wrongAnswer;
+var currentQuestion;
+var time;
+var selected;
+var nextQuestion;
+$("#start").on("click",function () {
+    reset();
+    newGame();
+};
+function newGame(){
+    newQuestion();
+}
+function newQuestion(){
+    $("#rightAnswer").empty();
+    selected=true;
+    
+    $("#currentQuestion").html("<h2>"namePerson[currentQuestion].question+"</h2>");
+    
+    for(var i=0;i<4;i++){
+        var pick = $("#answer");
+        pick.text(namePerson[currentQuestion].Answer[i]);
+        pick.attr({"data-index":i});
+        pick.addClass("thisPick");
+        $("#answer").append(pick);
+        
+    }
+    countDown();
+    
+}
+
+function countDown(){
+    seconds = 10;
+    
+    $("#time-left").html("<h3> time remaining:"+ seconds +"</h3>");
+    selected=true;
+    time=setInterval(displayCount, 1000);
+    
+};
+
+function displayCount(){
+    seconds--;
+    $("#time-left").html("<h3> time remaining:"+ seconds + "</h3>");
+    clearInterval(time);
+    answered=false;
+    
+}
+              
