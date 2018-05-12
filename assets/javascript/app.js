@@ -2,7 +2,7 @@ var namePerson = [{question: "What's the name of Chicago Bulls Player who won ch
                   Answer: 3
                   },{
                       question: "Who is the oracle of Omaha?",
-                      choices:"Gates", "Buffet","Musk","Tesla",
+                      choices:"Gates","Buffet","Musk","Tesla",
                       Answer: 1
                   },{
                      question: "Who owns Microsoft?",
@@ -83,5 +83,11 @@ function displayCount(){
     clearInterval(time);
     answered=false;
     
+}
+function reset(){
+    $("#time-left").empty();
+    $("#currentQuestion").empty();
+    $("#thisPick").empty();
+    $("#rightAnswer").empty();
 }
               
